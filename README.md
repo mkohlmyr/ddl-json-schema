@@ -4,14 +4,16 @@ The W3C Customer Experience Digital Data Layer is a [specification](https://www.
 
 The `window.digitalData` object may be extended in many ways. The objects in the specification are not required to be present, but if they are used they must adhere to the specified property names and types. On the global object the following names are reserved properties on the `digitalData` object: `pageInstanceID`, `page`, `product`, `cart`, `transaction`, `event`, `component`, `user`, `privacy`, `version`.
 
-## digitalData.pageInstanceID
+
+# Page Instance ID
+**digitalData.pageInstanceID**
 ```
 "pageInstanceID": {
   "type": "string"
 }
 ```
-
-## digitalData.page
+# Page
+**digitalData.page**
 ```
 "page": {  
   "type":"object",
@@ -24,7 +26,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 | `page.category`   | `object` |
 | `page.attributes` | `object` |
 
-### digitalData.page.pageInfo
+**digitalData.page.pageInfo**
 ```
 "pageInfo": {
   "type": "object",
@@ -49,14 +51,14 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 | `pageInfo.industryCodes`   | `string` |
 | `pageInfo.publisher`       | `string` |
 
-#### digitalData.page.pageInfo.breadcrumbs[n]
+**digitalData.page.pageInfo.breadcrumbs[n]**
 ```
 {
   "type": "string"
 }
 ```
 
-### digitalData.page.category
+**digitalData.page.category**
 ```
 "category" {
   "type": "object",
@@ -67,7 +69,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 | -------------------------- | -------- |
 | `category.primaryCategory` | `string` |
 
-### digitalData.page.attributes
+**digitalData.page.attributes**
 ```
 "attributes": {
   "type": "object",
@@ -75,7 +77,8 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 }
 ```
 
-## digitalData.product
+# Product
+**digitalData.product**
 ```
 "product": {
   "type": "array",
@@ -83,7 +86,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 }
 ```
 
-### digitalData.product[n]
+**digitalData.product[n]**
 ```
 {
   "type": "object",
@@ -97,7 +100,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 | `product[n].linkedProduct` | `array`  |
 | `product[n].attributes`    | `object` |
 
-#### digitalData.product[n].productInfo
+**digitalData.product[n].productInfo**
 ```
 "productInfo": {
   "type": "object",
@@ -117,7 +120,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 | `productInfo.color`            | `string` |
 | `productInfo.size`             | `string` |
 
-#### digitalData.product[n].category
+**digitalData.product[n].category**
 ```
 "category" {
   "type": "object",
@@ -128,7 +131,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 | -------------------------- | -------- |
 | `category.primaryCategory` | `string` |
 
-#### digitalData.product[n].linkedProduct
+**digitalData.product[n].linkedProduct**
 ```
 "linkedProduct": {
   "type": "array",
@@ -137,7 +140,7 @@ The `window.digitalData` object may be extended in many ways. The objects in the
 ```
 See digitalData.product
 
-#### digitalData.product[n].attributes
+**digitalData.product[n].attributes**
 ```
 "attributes": {
   "type": "object",
@@ -145,7 +148,8 @@ See digitalData.product
 }
 ```
 
-## digitalData.cart
+# Cart
+**digitalData.cart**
 ```
 "cart": {
   "type": "object",
@@ -159,7 +163,13 @@ See digitalData.product
 | `cart.attributes` | `object` |
 | `cart.item`       | `array`  |
 
-### digitalData.cart.price
+**digitalData.cart.price**
+```
+"price": {
+  "type": "object",
+  ...
+}
+```
 | Reserved property       | Type     |
 | ----------------------- | -------- |
 | `price.basePrice`       | `number` |
@@ -172,7 +182,7 @@ See digitalData.product
 | `price.priceWithTax`    | `number` |
 | `price.cartTotal`       | `number` |
 
-### digitalData.cart.attributes
+**digitalData.cart.attributes**
 ```
 "attributes": {
   "type": "object",
@@ -180,7 +190,7 @@ See digitalData.product
 }
 ```
 
-### digitalData.cart.item
+**digitalData.cart.item**
 ```
 "item": {
   "type": "array",
@@ -188,7 +198,13 @@ See digitalData.product
 }
 ```
 
-#### digitalData.cart.item[n]
+**digitalData.cart.item[n]**
+```
+{
+  "type": "object",
+  ...
+}
+```
 | Reserved property       | Type     |
 | ----------------------- | -------- |
 | `item[n].productInfo`   | `object` |
@@ -198,7 +214,7 @@ See digitalData.product
 | `item[n].linkedProduct` | `array`  |
 | `item[n].attributes`    | `object` |
 
-##### digitalData.cart.item[n].productInfo
+**digitalData.cart.item[n].productInfo**
 ```
 "productInfo": {
   "type": "object",
@@ -207,7 +223,7 @@ See digitalData.product
 ```
 See digitalData.product[n].productInfo
 
-##### digitalData.cart.item[n].category
+**digitalData.cart.item[n].category**
 ```
 "category": {
   "type": "object",
@@ -218,7 +234,7 @@ See digitalData.product[n].productInfo
 | -------------------------- | -------- |
 | `category.primaryCategory` | `string` |
 
-##### digitalData.cart.item[n].price
+**digitalData.cart.item[n].price**
 ```
 "price": {
   "type": "object",
@@ -236,7 +252,7 @@ See digitalData.product[n].productInfo
 | `price.shippingMethod`  | `string` |
 | `price.priceWithTax`    | `number` |
 
-##### digitalData.cart.item[n].linkedProduct
+**digitalData.cart.item[n].linkedProduct**
 ```
 "linkedProduct": {
   "type": "array",
@@ -245,15 +261,15 @@ See digitalData.product[n].productInfo
 ```
 See digitalData.product
 
-##### digitalData.cart.item[n].attributes
+**digitalData.cart.item[n].attributes**
 ```
 "attributes": {
   "type": "object",
   ...
 }
 ```
-
-## digitalData.transaction
+# Transaction
+**digitalData.transaction**
 ```
 "transaction": {
   "type": "object",
@@ -268,7 +284,7 @@ See digitalData.product
 | `transaction.attributes`    | `object` |
 | `transaction.item`          | `array`  |
 
-### digitalData.transaction.profile
+**digitalData.transaction.profile**
 ```
 "profile": {
   "type": "object",
@@ -281,7 +297,7 @@ See digitalData.product
 | `profile.address`         | `object` |
 | `profile.shippingAddress` | `object` |
 
-#### digitalData.transaction.profile.profileInfo
+**digitalData.transaction.profile.profileInfo**
 ```
 "profileInfo": {
   "type": "object",
@@ -294,7 +310,7 @@ See digitalData.product
 | `profileInfo.userName`  | `string` |
 | `profileInfo.email`     | `string` |
 
-#### digitalData.transaction.profile.address
+**digitalData.transaction.profile.address**
 ```
 "address": {
   "type": "object",
@@ -310,7 +326,7 @@ See digitalData.product
 | `address.postalCode`    | `string` |
 | `address.country`       | `string` |
 
-#### digitalData.transaction.profile.shippingAddress
+**digitalData.transaction.profile.shippingAddress**
 ```
 "shippingAddress": {
   "type": "object",
@@ -319,7 +335,7 @@ See digitalData.product
 ```
 See digitalData.transaction.profile.address
 
-### digitalData.transaction.total
+**digitalData.transaction.total**
 ```
 "total": {
   "type": "object",
@@ -338,7 +354,7 @@ See digitalData.transaction.profile.address
 | `total.priceWithTax`     | `number` |
 | `total.transactionTotal` | `number` |
 
-### digitalData.transaction.attributes
+**digitalData.transaction.attributes**
 ```
 "attributes": {
   "type": "object",
@@ -346,7 +362,7 @@ See digitalData.transaction.profile.address
 }
 ```
 
-### digitalData.transaction.item
+**digitalData.transaction.item**
 ```
 "item": {
   "type": "array",
@@ -355,7 +371,8 @@ See digitalData.transaction.profile.address
 ```
 See digitalData.cart.item
 
-## digitalData.event
+# Event
+**digitalData.event**
 ```
 "event": {
   "type": "array",
@@ -363,7 +380,7 @@ See digitalData.cart.item
 }
 ```
 
-###digitalData.event[n]
+**digitalData.event[n]**
 ```
 {
   "type": "object",
@@ -376,7 +393,7 @@ See digitalData.cart.item
 | `event[n].category`   | `object` |
 | `event[n].attributes` | `object` |
 
-#### digitalData.event[n].eventInfo
+**digitalData.event[n].eventInfo**
 ```
 "eventInfo": {
   "type": "object",
@@ -393,7 +410,7 @@ See digitalData.cart.item
 | `eventInfo.cause`       | `string` |
 | `eventInfo.effect`      | `string` |
 
-#### digitalData.event[n].category
+**digitalData.event[n].category**
 ```
 "category": {
   "type": "object",
@@ -404,7 +421,7 @@ See digitalData.cart.item
 | -------------------------- | -------- |
 | `category.primaryCategory` | `string` |
 
-#### digitalData.event[n].attributes
+**digitalData.event[n].attributes**
 ```
 "attributes": {
   "type": "object",
@@ -412,7 +429,8 @@ See digitalData.cart.item
 }
 ```
 
-## digitalData.component
+# Component
+**digitalData.component**
 ```
 "component": {
   "type": "array",
@@ -420,7 +438,7 @@ See digitalData.cart.item
 }
 ```
 
-### digitalData.component[n]
+**digitalData.component[n]**
 ```
 {
   "type": "object",
@@ -434,7 +452,7 @@ See digitalData.cart.item
 | `component[n].category`      | `object` |
 | `component[n].attributes`    | `object` |
 
-#### digitalData.component[n].componentInfo
+**digitalData.component[n].componentInfo**
 ```
 "componentInfo": {
   "type": "object",
@@ -445,7 +463,7 @@ See digitalData.cart.item
 | --------------------------- | -------- |
 | `componentInfo.componentID` | `string` |
 
-#### digitalData.component[n].category
+**digitalData.component[n].category**
 ```
 "category": {
   "type": "object",
@@ -456,7 +474,8 @@ See digitalData.cart.item
 | -------------------------- | -------- |
 | `category.primaryCategory` | `string` |
 
-## digitalData.user
+# User
+**digitalData.user**
 ```
 "user": {
   "type": "array",
@@ -464,7 +483,7 @@ See digitalData.cart.item
 }
 ```
 
-### digitalData.user[n]
+**digitalData.user[n]**
 ```
 {
   "type": "object",
@@ -476,7 +495,7 @@ See digitalData.cart.item
 | `user[n].segment` | `object` |
 | `user[n].profile` | `array`  |
 
-#### digitalData.user[n].segment
+**digitalData.user[n].segment**
 ```
 "segment": {
   "type": "object",
@@ -484,7 +503,7 @@ See digitalData.cart.item
 }
 ```
 
-#### digitalData.user[n].profile
+**digitalData.user[n].profile**
 ```
 "profile": {
   "type": "array",
@@ -492,14 +511,14 @@ See digitalData.cart.item
 }
 ```
 
-##### digitalData.user[n].profile[n]
+**digitalData.user[n].profile[n]**
 ```
 {
   "type": "object"
 }
 ```
 
-###### digitalData.user[n].profile[n].profileInfo
+**digitalData.user[n].profile[n].profileInfo**
 ```
 "profileInfo": {
   "type": "object",
@@ -516,7 +535,7 @@ See digitalData.cart.item
 | `profileInfo.type`            | `string` |
 
 
-###### digitalData.user[n].profile[n].address
+**digitalData.user[n].profile[n].address**
 ```
 "address": {
   "type": "object",
@@ -532,7 +551,7 @@ See digitalData.cart.item
 | `address.postalCode`    | `string` |
 | `address.country`       | `string` |
 
-###### digitalData.user[n].profile[n].social
+**digitalData.user[n].profile[n].social**
 ```
 "social": {
   "type": "object",
@@ -540,7 +559,7 @@ See digitalData.cart.item
 }
 ```
 
-###### digitalData.user[n].profile[n].attributes
+**digitalData.user[n].profile[n].attributes**
 ```
 "attributes": {
   "type": "object",
@@ -548,7 +567,8 @@ See digitalData.cart.item
 }
 ```
 
-## digitalData.privacy
+# Privacy
+**digitalData.privacy**
 ```
 "privacy": {
   "type": "object",
@@ -559,7 +579,7 @@ See digitalData.cart.item
 | ------------------ | -------- |
 | `accessCategories` | `array`  |
 
-### digitalData.privacy.accessCategories
+**digitalData.privacy.accessCategories**
 ```
 "accessCategories": {
   "type": "array",
@@ -567,7 +587,7 @@ See digitalData.cart.item
 }
 ```
 
-#### digitalData.privacy.accessCategories[n]
+**digitalData.privacy.accessCategories[n]**
 ```
 {
   "type": "object",
@@ -579,7 +599,7 @@ See digitalData.cart.item
 | `accessCategories[n].categoryName` | `string`  |
 | `accessCategories[n].domains`      | `array`  |
 
-##### digitalData.privacy.accessCategories[n].domains
+**digitalData.privacy.accessCategories[n].domains**
 ```
 "domains": {
   "type": "array",
@@ -587,14 +607,14 @@ See digitalData.cart.item
 }
 ```
 
-###### digitalData.privacy.accessCategories[n].domains[n]
+**digitalData.privacy.accessCategories[n].domains[n]**
 ```
 {
   "type": "string"
 }
 ```
-
-## digitalData.version
+# Version
+**digitalData.version**
 ```
 "version": {
   "type": "string"
@@ -604,7 +624,7 @@ The version number of the specification this object is adhering to.
 
 ----
 
-## Access control using the security object
+# Access control using the security object
 The optional security object can be added to any part of the digital data object other than the first level.
 The security object works in conjunction with defined accessCategories to specify which vendors are allowed to consume which parts of the digital data object.
 
