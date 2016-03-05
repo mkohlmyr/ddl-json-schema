@@ -184,6 +184,33 @@
             "variant":{  
               "type":"string"
             },
+            "version":{
+              "type":"string"
+            },
+            "breadcrumbs":{
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "issueDate":{
+              "type": "string"
+            },
+            "effectiveDate":{
+              "type": "string"
+            },
+            "expiryDate":{
+              "type": "string"
+            },
+            "language":{
+              "type": "string"
+            },
+            "industryCodes":{
+              "type": "string"
+            },
+            "publisher":{
+              "type": "string"
+            },
             "security":{  
               "$ref":"#/definitions/security"
             }
