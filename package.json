@@ -15,7 +15,5 @@
   },
   "homepage": "https://github.com/mkohlmyr/ddl-json-schema",
   "devDependencies": {},
-  "engines": {
-    "node": ">=0.10.26"
-  }
+  "engines": {}
 }
