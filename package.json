@@ -1,0 +1,21 @@
+{
+  "name": "ddl-json-schema",
+  "version": "1.0.0",
+  "description": "JSON Schema for the W3C Customer Experience Digital Data Layer",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mkohlmyr/ddl-json-schema.git"
+  },
+  "author": "Mikael Kohlmyr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mkohlmyr/ddl-json-schema/issues"
+  },
+  "homepage": "https://github.com/mkohlmyr/ddl-json-schema",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.10.26"
+  }
+}
