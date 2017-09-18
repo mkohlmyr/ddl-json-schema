@@ -1,0 +1,389 @@
+{
+  "type": "object",
+  "properties": {
+    "pageInstanceID": {
+      "type": "string"
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "pageInfo": {
+          "type": "object",
+          "properties": {
+            "pageID": {
+              "type": "string"
+            },
+            "pageName": {
+              "type": "string"
+            },
+            "destinationURL": {
+              "type": "string",
+              "format": "uri"
+            },
+            "referringURL": {
+              "type": "string",
+              "format": "uri"
+            },
+            "sysEnv": {
+              "type": "string"
+            },
+            "variant": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "breadcrumbs": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "issueDate": {
+              "type": "string"
+            },
+            "effectiveDate": {
+              "type": "string"
+            },
+            "expiryDate": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            },
+            "industryCodes": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "security": {
+              "$ref": "#/definitions/security"
+            }
+          },
+          "additionalProperties": true
+        },
+        "category": {
+          "$ref": "#/definitions/category"
+        },
+        "attributes": {
+          "$ref": "#/definitions/attributes"
+        },
+        "security": {
+          "$ref": "#/definitions/security"
+        }
+      },
+      "additionalProperties": true
+    },
+    "product": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/product"
+      }
+    },
+    "cart": {
+      "type": "object",
+      "properties": {
+        "cartID": {
+          "type": "string"
+        },
+        "price": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/price"
+            },
+            {
+              "properties": {
+                "cartTotal": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "attributes": {
+          "$ref": "#/definitions/attributes"
+        },
+        "item": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/product"
+              },
+              {
+                "properties": {
+                  "quantity": {
+                    "type": "number"
+                  },
+                  "price": {
+                    "$ref": "#/definitions/price"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "security": {
+          "$ref": "#/definitions/security"
+        }
+      }
+    },
+    "transaction": {
+      "type": "object",
+      "properties": {
+        "transactionID": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "object",
+          "properties": {
+            "profileInfo": {
+              "type": "object",
+              "properties": {
+                "profileID": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "security": {
+                  "$ref": "#/definitions/security"
+                }
+              },
+              "additionalProperties": true
+            },
+            "address": {
+              "$ref": "#/definitions/address"
+            },
+            "shippingAddress": {
+              "$ref": "#/definitions/address"
+            },
+            "security": {
+              "$ref": "#/definitions/security"
+            }
+          },
+          "additionalProperties": true
+        },
+        "total": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/price"
+            },
+            {
+              "properties": {
+                "transactionTotal": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "attributes": {
+          "$ref": "#/definitions/attributes"
+        },
+        "item": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/product"
+              },
+              {
+                "properties": {
+                  "quantity": {
+                    "type": "number"
+                  },
+                  "price": {
+                    "$ref": "#/definitions/price"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "security": {
+          "$ref": "#/definitions/security"
+        }
+      },
+      "additionalProperties": true
+    },
+    "event": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "eventInfo": {
+            "type": "object",
+            "properties": {
+              "eventName": {
+                "type": "string"
+              },
+              "eventAction": {
+                "type": "string"
+              },
+              "eventPoints": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              },
+              "timeStamp": {
+                "$ref": "#/definitions/date"
+              },
+              "cause": {
+                "type": "string"
+              },
+              "effect": {
+                "type": "string"
+              },
+              "security": {
+                "$ref": "#/definitions/security"
+              }
+            },
+            "additionalProperties": true
+          },
+          "category": {
+            "$ref": "#/definitions/category"
+          },
+          "attributes": {
+            "$ref": "#/definitions/attributes"
+          },
+          "security": {
+            "$ref": "#/definitions/security"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "component": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "componentInfo": {
+            "type": "object",
+            "properties": {
+              "componentID": {
+                "type": "string"
+              },
+              "security": {
+                "$ref": "#/definitions/security"
+              }
+            },
+            "additionalProperties": true
+          },
+          "category": {
+            "$ref": "#/definitions/category"
+          },
+          "attributes": {
+            "$ref": "#/definitions/attributes"
+          },
+          "security": {
+            "$ref": "#/definitions/security"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "user": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "segment": {
+            "type": "object"
+          },
+          "profile": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "profileInfo": {
+                  "type": "object",
+                  "properties": {
+                    "profileID": {
+                      "type": "string"
+                    },
+                    "userName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "language": {
+                      "type": "string"
+                    },
+                    "returningStatus": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                "address": {
+                  "$ref": "#/definitions/address"
+                },
+                "social": {
+                  "type": "object"
+                },
+                "attributes": {
+                  "$ref": "#/definitions/attributes"
+                },
+                "security": {
+                  "$ref": "#/definitions/security"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "security": {
+            "$ref": "#/definitions/security"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "properties": {
+        "accessCategories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "categoryName": {
+                "type": "string"
+              },
+              "domains": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "hostname"
+                }
+              },
+              "security": {
+                "$ref": "#/definitions/security"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "security": {
+          "$ref": "#/definitions/security"
+        }
+      },
+      "additionalProperties": true
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}
