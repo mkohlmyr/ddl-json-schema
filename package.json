@@ -1,6 +1,6 @@
 {
   "name": "ddl-json-schema",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "JSON Schema for the W3C Customer Experience Digital Data Layer",
   "main": "index.js",
   "scripts": {},
